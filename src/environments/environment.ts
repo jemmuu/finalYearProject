@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
  firebaseConfig : {
   apiKey: "AIzaSyApZ7eZmnNzGi8v0N0tytj1XenGBDJZQbc",
@@ -14,6 +15,7 @@ export const environment = {
   appId: "1:987753858877:web:b883aabb7b61f2626a2754",
   measurementId: "G-LY7E4L13QF"
 }
+
 };
 
 /*

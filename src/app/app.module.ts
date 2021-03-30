@@ -1,5 +1,18 @@
 import { NgModule } from '@angular/core';
+import { AngularFireModule } from '@angular/fire';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+
+import { environment } from 'src/environments/environment';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { LoginComponent } from './pages/login/login.component';
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+
+
 import {MatTableModule} from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,30 +28,44 @@ import { DemoMaterialModule } from './material-module';
 
 
 import { environment } from 'src/environments/environment';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuthModule } from '@angular/fire/auth';
+
+
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
+
+    LoginComponent,
+    UserProfileComponent
+
     EmployeeListComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
+
+    FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    BrowserAnimationsModule,
+   
+
+    BrowserAnimationsModule,
+   
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireMessagingModule, 
     MatNativeDateModule,
     DemoMaterialModule
+
   ],
   providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },],
   bootstrap: [AppComponent]
