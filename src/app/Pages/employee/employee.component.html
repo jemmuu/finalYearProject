@@ -1,4 +1,7 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="page-area">
+    <!-- heading -->
+    <h1 class="text-center">Manage Employees</h1>
 
     <!-- manage Employees -->
     <div class="container border-top p-5">
@@ -6,56 +9,70 @@
 
             <!-- add Employee -->
             <div class="col-md-4">
+                <h2>Add Employees</h2>
                 <form>
-                    <h2>Add Employees</h2>
 
-                    <mat-form-field class="example-full-width">
-                        <mat-label>Name</mat-label>
-                        <input matInput placeholder="Enter Name" id="name">
-                    </mat-form-field>
+                    <!-- Employee name -->
+                    <div class="form-group">
+                        <label for="name"> Name</label>
+                        <input type="text" class="form-control" id="name" [(ngModel)]='employee.name' name="name">
+                    </div>
 
-                    <br>
-                    <mat-label>Gender</mat-label>
-                    <mat-radio-group aria-label="Gender" id="gender">
-                        <mat-radio-button value="Male">Male</mat-radio-button>
-                        <mat-radio-button value="Female">Female</mat-radio-button>
-                    </mat-radio-group>
+                    <!-- Employee Gender -->
+                    <div class="form-group">
+                        <label for="enrollment"> Gender </label>
+                        <input type="radio" name="gender" value="Male" id="gender" [(ngModel)]='employee.gender'>
+                        <input type="radio" name="gender" value="Female" id="gender" [(ngModel)]='employee.gender'>
+                    </div>
 
 
-                    <mat-form-field class="example-full-width">
-                        <mat-label>Designation</mat-label>
-                        <input matInput placeholder="Enter Designation" id="designation">
-                    </mat-form-field>
+                    <!-- Employee designation -->
+                    <div class="form-group">
+                        <label for="designation"> Designation</label>
+                        <input type="text" class="form-control" id="designation" [(ngModel)]='employee.designation'
+                            name="designation">
+                    </div>
 
-                    <mat-form-field class="example-full-width">
-                        <mat-label>Mobile</mat-label>
-                        <input matInput placeholder="Enter Mobileb Number" id="mobile">
-                    </mat-form-field>
+                    <!-- Employee Mobile -->
+                    <div class="form-group">
+                        <label for="mobile"> Mobile</label>
+                        <input type="text" class="form-control" id="mobile" [(ngModel)]='employee.mobile' name="mobile">
+                    </div>
 
-                    <mat-form-field class="example-full-width">
-                        <mat-label>Email</mat-label>
-                        <input matInput placeholder="Enter Email" id="email">
-                    </mat-form-field>
+                    <!-- Employee Email -->
+                    <div class="form-group">
+                        <label for="email"> Email</label>
+                        <input type="email" class="form-control" id="email" [(ngModel)]='employee.email' name="email">
+                    </div>
 
-                    <mat-form-field class="example-full-width">
-                        <mat-label>Password</mat-label>
-                        <input matInput placeholder="Enter Passowrd" id="password">
-                    </mat-form-field>
+                    <!-- Employee Password -->
+                    <div class="form-group">
+                        <label for="password"> Password</label>
+                        <input type="password" class="form-control" id="password" [(ngModel)]='employee.password'
+                            name="password">
+                    </div>
 
-                    <mat-form-field class="example-full-width">
-                        <mat-label>Address</mat-label>
-                        <input matInput placeholder="Enter Address" id="address">
-                    </mat-form-field>
+                    <!-- Employee Address -->
+                    <div class="form-group">
+                        <label for="address"> Address</label>
+                        <textarea rows="5" class="form-control" id="address" [(ngModel)]='employee.address'
+                            name="address">
+                    </div>
 
-                    <mat-form-field class="example-full-width">
-                        <mat-label>DOB</mat-label>
-                        <input matInput placeholder="Enter DOB" id="dob">
-                    </mat-form-field>
-
-                    <button mat-raised-button color="primary" (click)="addEmployee()">Submit</button>
+                    <!-- Employee DOB -->
+                    <div class="form-group">
+                        <label for="dob"> Date Of Birth</label>
+                     <input type="date" class="form-control" id="dob" [(ngModel)]='employee.dob' name="dob">
+                    </div>
+                    
+                    <!-- button -->
+                    <button  mat-raised-button color="primary" (click)="addEmployee()" [disabled]="isUpdate">Add</button> 
+                    <button type="button" class="btn btn-sm btn-success mr-2" (click)="addEmployee()" [disabled]="!isUpdate">Update</button>
+                    <button type="button" class="btn btn-sm btn-info" routerLink="/firebase"> Go to Firebase CRUD</button>
 
                 </form>
             </div>
+
             <!-- display Employee -->
             <div class="col-md-8">
                 <h2>Employees List</h2>
@@ -63,35 +80,35 @@
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">No.</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Gender</th>
-                            <th>DOB</th>
-                            <th>Address</th>
-                            <th>Designation</th>
-                            <th>Mobile</th>
-                            <th>Passowrd</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Designation</th>
+                            <th scope="col">Mobile</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Password</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">DOB</th>
                             <th scope="col">Edit</th>
                             <th scope="col">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let employee of employees ; index as i">
+                        <tr *ngFor= "let employee of employees ; index as i">
                             <th scope="row">{{i+1}}</th>
-                            <td>{{name}}</td>
-                            <td>{{email}}</td>
-                            <td>{{gender}}</td>
-                            <td>{{dob}}</td>
-                            <td>{{address}}</td>
-                            <td>{{designation}}</td>
-                            <td>{{mobile}}</td>
-                            <td>{{password}}</td>
-                            <td (click)="updateEmployee(employee)" class="text-center">
-                                <a class="text-info">
+                            <td>{{employee.name}}</td>
+                            <td>{{employee.gender}}</td>
+                            <td>{{employee.designation}}</td>
+                            <td>{{employee.mobile}}</td>
+                            <td>{{employee.email}}</td>
+                            <td>{{employee.password}}</td>
+                            <td>{{employee.address}}</td>
+                            <td>{{employee.dob}}</td>
+                            <td (click)="updateEmployee(employee)" class="text-center"> 
+                                <a  class="text-info">
                                     <i class="fa fa-edit" aria-hidden="true"></i>
                                 </a>
                             </td>
-                            <td (click)="deleteEmployee(employee.id)" class="text-center">
+                            <td (click)="deleteEmployee(employee.id)" class="text-center"> 
                                 <a class="text-danger">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </a>
@@ -99,7 +116,6 @@
                         </tr>
                     </tbody>
                 </table>
-
             </div>
         </div>
     </div>
