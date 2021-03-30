@@ -1,0 +1,106 @@
+<div class="page-area">
+
+    <!-- manage Employees -->
+    <div class="container border-top p-5">
+        <div class="row">
+
+            <!-- add Employee -->
+            <div class="col-md-4">
+                <form>
+                    <h2>Add Employees</h2>
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Name</mat-label>
+                        <input matInput placeholder="Enter Name" id="name">
+                    </mat-form-field>
+
+                    <br>
+                    <mat-label>Gender</mat-label>
+                    <mat-radio-group aria-label="Gender" id="gender">
+                        <mat-radio-button value="Male">Male</mat-radio-button>
+                        <mat-radio-button value="Female">Female</mat-radio-button>
+                    </mat-radio-group>
+
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Designation</mat-label>
+                        <input matInput placeholder="Enter Designation" id="designation">
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Mobile</mat-label>
+                        <input matInput placeholder="Enter Mobileb Number" id="mobile">
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Enter Email" id="email">
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Password</mat-label>
+                        <input matInput placeholder="Enter Passowrd" id="password">
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Address</mat-label>
+                        <input matInput placeholder="Enter Address" id="address">
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label>DOB</mat-label>
+                        <input matInput placeholder="Enter DOB" id="dob">
+                    </mat-form-field>
+
+                    <button mat-raised-button color="primary" (click)="addEmployee()">Submit</button>
+
+                </form>
+            </div>
+            <!-- display Employee -->
+            <div class="col-md-8">
+                <h2>Employees List</h2>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">No.</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Gender</th>
+                            <th>DOB</th>
+                            <th>Address</th>
+                            <th>Designation</th>
+                            <th>Mobile</th>
+                            <th>Passowrd</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let employee of employees ; index as i">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{name}}</td>
+                            <td>{{email}}</td>
+                            <td>{{gender}}</td>
+                            <td>{{dob}}</td>
+                            <td>{{address}}</td>
+                            <td>{{designation}}</td>
+                            <td>{{mobile}}</td>
+                            <td>{{password}}</td>
+                            <td (click)="updateEmployee(employee)" class="text-center">
+                                <a class="text-info">
+                                    <i class="fa fa-edit" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                            <td (click)="deleteEmployee(employee.id)" class="text-center">
+                                <a class="text-danger">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
