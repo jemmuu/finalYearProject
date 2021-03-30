@@ -1,0 +1,18 @@
+{
+  "targets": {
+    "finalyear-2620f": {
+      "hosting": {
+        "finalyear": [
+          "finalyear-2620f"
+        ]
+      }
+    },
+    "employee-crud-e0939": {
+      "hosting": {
+        "finalyear": [
+          "employee-crud-e0939"
+        ]
+      }
+    }
+  }
+}
