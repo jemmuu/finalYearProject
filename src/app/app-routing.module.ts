@@ -8,7 +8,7 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'user-profile', component: UserProfileComponent}
+  {path: 'user-profile', component: UserProfileComponent},
 
 
 

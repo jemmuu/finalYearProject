@@ -1,0 +1,9 @@
+.menu-spacer {
+    flex: 15 1 auto;
+  }
+
+  mat-menu
+  {
+      padding-top: 55px;
+  }
+  
