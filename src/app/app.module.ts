@@ -33,17 +33,22 @@ import { DemoMaterialModule } from './material-module';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { AddEmployeeComponent } from './pages/add-employee/add-employee.component';
+import { ProfileEmployeeComponent } from './profile-employee/profile-employee.component';
+import { HomeComponent } from './pages/home/home.component';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-
     LoginComponent,
     UserProfileComponent,
-
-    EmployeeListComponent
+    EmployeeListComponent,
+    AddEmployeeComponent,
+    ProfileEmployeeComponent,
+    HomeComponent
 
   ],
   imports: [

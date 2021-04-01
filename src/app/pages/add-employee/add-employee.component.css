@@ -1,0 +1,35 @@
+.full-width {
+    width: 100%;
+  }
+
+  .form {
+    
+    max-width: 70%;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 25px;
+  }
+
+  body
+  {
+      margin-top: 25px;
+      
+  }
+
+  .size
+  {
+      width : 100%;
+  }
+
+  .head
+  {
+      text-align: center;
+      justify-content: center;
+      font-weight: bolder;
+      font-size: xx-large;
+  }
+
+  hr{
+      border: 1px #540d6e solid;
+      
+  }

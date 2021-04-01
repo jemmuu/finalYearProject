@@ -17,3 +17,21 @@ table {
   margin: 0px auto;
   margin-top: 8%;
 }
+
+.search
+{
+  width:80%;
+}
+
+.addemp
+{
+  width:18%;
+  font-size: medium;
+  height: 51px;
+  padding-bottom: 0px;
+  border-bottom-width: 0px;
+  margin-bottom: 0px;
+  bottom: 7px;
+
+}
+

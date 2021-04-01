@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from './core/services/login/login.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent {
   title = 'finalyear';
   displayNavbar: string;
 
- constructor(public router: Router)
+ constructor(public router: Router , public auth : LoginService)
  {
    
  }

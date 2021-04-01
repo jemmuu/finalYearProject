@@ -1,0 +1,232 @@
+<body class="container">
+
+    <form action="" class="form" [formGroup]='form'>
+        <div class="form-group row head">
+
+            <h1 class="head">
+                Employee Details
+            </h1>
+            
+        </div>
+        <hr>
+        <div class="form-group row" formGroupName='name'>
+
+            <div class="col-md">
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>First Name <span style="color:'red'">*</span></mat-label>
+                    
+                    <input type="text" formControlName='firstName' matInput id="firstName"  [readonly]='showEmployee'>
+                   
+                    <mat-error  *ngIf="fn?.touched && !fn?.valid && !showEmployee">
+                        <mat-error *ngIf="fn?.errors?.required">Please Enter First Name</mat-error>
+                        <mat-error *ngIf="fn?.errors?.minlength">Min length should be 4</mat-error>
+                        <mat-error *ngIf="fn?.errors?.pattern">should not contain numbers</mat-error>
+                        <mat-error *ngIf="fn?.errors?.containNoblankspace">Name should not contain any Space</mat-error>
+                    </mat-error>
+                  </mat-form-field>
+                
+                
+            </div>
+            <div class="col-md">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Last Name <span style="color:'red'">*</span></mat-label>
+                    
+                    <input type="text" formControlName='lastName' matInput id="lastName"  [readonly]='showEmployee'>
+                   
+                    <mat-error  *ngIf="lastName?.touched && !lastName?.valid">
+                        <mat-error *ngIf="lastName?.errors?.required">Please Enter Last Name</mat-error>
+                        <mat-error *ngIf="lastName?.errors?.minlength">Min length should be 4</mat-error>
+                        <mat-error *ngIf="lastName?.errors?.pattern">should not contain numbers</mat-error>
+                        <mat-error *ngIf="lastName?.errors?.containNoblankspace">Last Name should not contain any Space</mat-error>
+        
+                    </mat-error>
+                  </mat-form-field>
+               
+               
+            </div>
+            
+        </div>
+    
+    
+        <div class="form-group row-md email">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Email <span style="color:'red'">*</span></mat-label>
+                
+                <input type="text" formControlName='email' matInput id="email"  [readonly]='showEmployee'>
+               
+                <mat-error   *ngIf="mailchk?.touched && !mailchk?.valid">
+                    <mat-error  *ngIf="mailchk?.errors?.required">Please Enter Email</mat-error >
+                     <mat-error  *ngIf="mailchk?.errors?.email">Please Enter correct email</mat-error > 
+                    <mat-error  *ngIf="mailchk?.errors?.containNoblankspace">Email should not contain any Space</mat-error >
+                </mat-error >
+              </mat-form-field>
+            
+            
+        </div>
+    
+    
+       <div class="form-group row">
+
+        <div class="col-md">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>PassWord <span style="color:'red'">*</span> </mat-label>
+                
+                <input type="password" formControlName='password'  matInput id="password"  [readonly]='showEmployee'>
+             
+                <mat-error  *ngIf="alter?.touched && !alter?.valid">
+                    <mat-error *ngIf="alter?.errors?.required">Please Enter PassWord</mat-error>
+                   
+                    <mat-error *ngIf="alter?.errors?.containNoblankspace">Should not contain any Space</mat-error>
+    
+                </mat-error>
+              </mat-form-field>
+           
+          
+        </div>
+            <div class="col-md">
+                
+                    <mat-form-field appearance="outline" class="full-width">
+                      <mat-label>Telephone <span style="color:'red'">*</span></mat-label>
+                      <span matPrefix>+91 &nbsp;</span>
+                      <input type="tel" matInput placeholder="9874561237" [readonly]='showEmployee' formControlName='contactNumber' id="contactNumber">
+                      <mat-icon matSuffix>mode_edit</mat-icon>
+                      <mat-error  *ngIf="contactNumber?.touched && !contactNumber?.valid && !showEmployee">
+                        <mat-error *ngIf="contactNumber?.errors?.required">Please Enter contact Number</mat-error>
+                        <mat-error *ngIf="contactNumber?.errors?.pattern">Please Enter only numbers</mat-error>
+                        <mat-error *ngIf="contactNumber?.errors?.containNoblankspace">Number should not contain any Space</mat-error>
+        
+                    </mat-error>
+                    </mat-form-field>
+                  
+              
+                
+            
+            </div>
+            
+    
+        </div>
+     
+        <div class="form-group row">
+            <div class="col-md">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Designation <span style="color:'red'">*</span></mat-label>
+                    
+                    <input type="text" formControlName='designation' matInput id="designation"  [readonly]='showEmployee'>
+                   
+                    <mat-error  *ngIf="designation?.touched && !designation?.valid">
+                        <mat-error *ngIf="designation?.errors?.required">Please Enter First Name</mat-error>
+                        <mat-error *ngIf="designation?.errors?.pattern">should not contain numbers</mat-error>
+                        <mat-error *ngIf="designation?.errors?.containNoblankspace">Name should not contain any Space</mat-error>
+                    </mat-error>
+                  </mat-form-field>
+                
+                
+            </div>
+            <div class="col-md">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Years of Experience </mat-label>                    
+                    <input type="text"  matInput id="yearOfExperience" [(ngModel)]='_yoe' [ngModelOptions]="{standalone: true}" [readonly]='showEmployee'>                
+                  </mat-form-field>                
+            </div>
+
+
+            <div class="col-md">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Joining date </mat-label>
+                    
+                    <input type="date" formControlName='joinDate' matInput id="joiningDate" [(ngModel)]='_jd'  [readonly]='showEmployee'>
+                    <mat-error  *ngIf="this.form.get('joinDate')?.touched && !designation?.valid">
+                        <mat-error *ngIf="this.form.get('joinDate')?.errors?.dateValidatorFuture">Please Enter valid date(no Future Date allow)</mat-error>
+                    </mat-error>
+                  </mat-form-field>
+                
+               
+                
+            </div>
+    
+        </div>
+    
+        <div class="form-group row-md add">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Current Address <span style="color:'red'">*</span></mat-label>
+            <textarea matInput formControlName='currentAddress' rows="4"  id="email"></textarea>
+            <mat-error *ngIf="this.form.get('currentAddress')?.touched && !this.form.get('currentAddress')?.valid">
+                <mat-error *ngIf="this.form.get('currentAddress')?.errors?.required">Please Enter address</mat-error>
+                
+            </mat-error>
+        </mat-form-field>
+        </div>
+        
+        <div class="form-group row">
+            <div class="col-md">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>City </mat-label>                    
+                    <input type="text"  matInput id="city"  [readonly]='showEmployee'[(ngModel)]='_city' [ngModelOptions]="{standalone: true}">                
+                  </mat-form-field>                
+            </div>
+            <div class="col-md">
+                 <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>State </mat-label>                    
+                    <input type="text"  matInput id="state"  [readonly]='showEmployee'[(ngModel)]='_state' [ngModelOptions]="{standalone: true}" >                
+                  </mat-form-field>
+            </div>
+            <div class="col-md">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Pincode </mat-label>                    
+                    <input type="number"  matInput id="pincode"  [readonly]='showEmployee' [(ngModel)]='_pincode' [ngModelOptions]="{standalone: true}">                
+                  </mat-form-field>
+            </div>
+    
+        </div>
+    
+        <div class="form-group row">
+            <div class="col-md">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>PAN Number <span style="color:'red'">*</span></mat-label>
+                    
+                    <input type="text" formControlName='panNumber' matInput id="panNumber"  [readonly]='showEmployee'>
+                   
+                    <mat-error  *ngIf="panNumber?.touched && !panNumber?.valid">
+                        <mat-error *ngIf="panNumber?.errors?.required">Please Enter PAN Number</mat-error>
+                        <mat-error *ngIf="panNumber?.errors?.pattern">Please Enter only numbers</mat-error>
+                        <mat-error *ngIf="panNumber?.errors?.containNoblankspace">PAN Number should not contain any Space</mat-error>
+                    </mat-error>
+                  </mat-form-field>
+                
+              
+            </div>
+            <div class="col-md">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Aadhar Number <span style="color:'red'">*</span></mat-label>
+                    
+                    <input type="text" formControlName='aadharNumber' matInput id="aadharNumber"  [readonly]='showEmployee'>
+                    <mat-error  *ngIf="aadharNumber?.touched && !aadharNumber?.valid">
+                        <mat-error *ngIf="aadharNumber?.errors?.required">Please Enter aadhar Number</mat-error>
+                        <mat-error *ngIf="aadharNumber?.errors?.pattern">Please Enter only numbers</mat-error>
+                        <mat-error *ngIf="aadharNumber?.errors?.containNoblankspace">Aadhar Number should not contain any Space</mat-error>
+        
+                    </mat-error>
+                 
+                  </mat-form-field>
+               
+                
+            </div>
+            <div class="col-md">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Employee ID <span style="color:'red'">*</span> </mat-label>                    
+                    <input type="text" formControlName='EmpId' matInput id="EmpId"  [readonly]='showEmployee'>       
+                    <mat-error  *ngIf="EmpId?.touched && !EmpId?.valid">
+                        <mat-error *ngIf="EmpId?.errors?.required">Please Enter aadhar Number</mat-error>
+                    </mat-error>         
+                  </mat-form-field>
+                
+            </div>
+     
+        </div>
+    
+        <button mat-flat-button color="primary" class='size' (click)='save()' [disabled]='!form.valid'>Save </button> &nbsp; &nbsp;
+        <button mat-flat-button color="warn"  class='size' (click)="this.router.navigate(['/employeeList'])" >Cancle </button>
+
+    </form>
+    </body>
