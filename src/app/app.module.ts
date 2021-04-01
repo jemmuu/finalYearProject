@@ -1,3 +1,4 @@
+
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -46,7 +47,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeComponent
+    EmployeeComponent,
   ],
   imports: [
     BrowserModule,
